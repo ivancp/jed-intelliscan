@@ -1,4 +1,4 @@
-package com.example.scan_barcode_app
+package com.nspsac.jedapp
 
 import io.flutter.embedding.android.FlutterActivity
 
