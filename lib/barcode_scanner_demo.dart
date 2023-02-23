@@ -23,7 +23,6 @@ class _BarcodeScannerDemoState extends State<BarcodeScannerDemo> {
       ..setBackgroundColor(const Color(0x00000000))
       ..addJavaScriptChannel('JedApp',
           onMessageReceived: (JavaScriptMessage javaScriptMessage) {
-        print('hello 2');
         barcodeScan();
       })
       ..setNavigationDelegate(
@@ -32,11 +31,7 @@ class _BarcodeScannerDemoState extends State<BarcodeScannerDemo> {
             // Update loading bar.
           },
           onPageStarted: (String url) {},
-          onPageFinished: (String url) async {
-            await _controller.runJavaScriptReturningResult(
-                'window.addEventListener("message", (event) => {JedApp.postMessage(\'...\');}, false);');
-            print('hello 1');
-          },
+          onPageFinished: (String url) async {},
           onWebResourceError: (WebResourceError error) {},
           onNavigationRequest: (NavigationRequest request) {
             return NavigationDecision.navigate;
@@ -44,7 +39,7 @@ class _BarcodeScannerDemoState extends State<BarcodeScannerDemo> {
         ),
       )
       ..loadRequest(
-          Uri.parse('http://www.arcossalazar.net/barcode/barcode.php'));
+          Uri.parse('https://intelliscan.livequipment.com'));
   }
 
   /// For Continuous scan
