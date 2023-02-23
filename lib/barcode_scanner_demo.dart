@@ -73,7 +73,8 @@ class _BarcodeScannerDemoState extends State<BarcodeScannerDemo> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-    return Scaffold(body: WebViewWidget(controller: _controller));
+    return Scaffold(body: SafeArea(
+      child: WebViewWidget(controller: _controller),
+    ));
   }
 }
